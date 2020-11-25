@@ -1,21 +1,17 @@
 public class NotificationTemplate {
-    private String name;
     private String type;
     private String content;
 
-    public void createTemplate(){
-
+    public void setTemplate(String type, String content){
+        this.type = type;
+        this.content = content;
     }
 
-    public void readTemplate(){
-
+    public String getType(){
+        return type;
     }
 
-    public void updateTemplate(){
-
-    }
-
-    public void deleteTemplate(){
-
+    public String getContent(){
+        return content;
     }
 }
