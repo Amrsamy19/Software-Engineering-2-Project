@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="24e9a0d3-6513-406b-8fdc-6e5020a8e602" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="24e9a0d3-6513-406b-8fdc-6e5020a8e602" name="Default Changelist" comment="Added class of notificationOperations&#10;Added create and update method">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NotificationTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NotificationTemplate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Software/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Software/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Software/notificationsOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Software/notificationsOperations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NotificationsOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NotificationsOperations.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +45,10 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="D:/College/Third Year/Operating System/CS241-OS1-A1-20180187-20180374-20180107-20180352" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunDashboard">
@@ -100,7 +104,9 @@
       <workItem from="1606150939420" duration="804000" />
       <workItem from="1606164366881" duration="957000" />
       <workItem from="1606233757210" duration="64000" />
-      <workItem from="1606328369707" duration="12186000" />
+      <workItem from="1606328369707" duration="15817000" />
+      <workItem from="1606384166232" duration="38000" />
+      <workItem from="1606409049708" duration="3129000" />
     </task>
     <servers />
   </component>
@@ -119,5 +125,20 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added class of notificationOperations&#10;Added create and update method" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added class of notificationOperations&#10;Added create and update method" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -9,6 +9,7 @@ public class Main {
     public static NotificationTemplate template = new NotificationTemplate();
     public static NotificationsOperations templateOperation = new NotificationsOperations();
 
+    //Reads the templates which had been made
     public static void readFileNames(){
         File file = new File(System.getProperty("user.dir"));
         FilenameFilter fileFilter = new FilenameFilter() {
@@ -23,7 +24,8 @@ public class Main {
             templatesNames.add(templateNames[i].getName().replace(".txt", ""));
     }
 
-    public static void operationsExecutor() throws IOException{
+    //Determines which operation that will be executed
+    public static void operationsExecutor() {
         while(true){
             Scanner reader = new Scanner(System.in);
             System.out.println("Choose an option: \n" +
@@ -40,26 +42,19 @@ public class Main {
                     System.out.println("Enter content of the template: ");
                     reader.useDelimiter("\\t");
                     String content = "";
-                    while(true){
-                        content += reader.next();
-                        break;
-                    }
+                    content += reader.next();
                     template.setTemplate(type, content);
                     templateOperation.createTemplate(template);
-                    System.out.println("Template created successfully");
                     break;
                 }
-               case "2":{ 
+                case "2":{
                    System.out.println("Enter type of the template: ");
-                    String type = reader.nextLine();
-                    for(int i = 0; i < templatesNames.size(); i++){
-                        if(templatesNames.get(i).equals(type))
-                        {
-                            templateOperation.readTemplate(templatesNames.get(i));
-                        }
+                   String type = reader.nextLine();
+                   for(int i = 0; i < templatesNames.size(); i++){
+                       if(templatesNames.get(i).equals(type))
+                           templateOperation.readTemplate(templatesNames.get(i));
                         else
-                             System.out.println("The template is not found");
-                        
+                            System.out.println("The template is not found");
                     }
                     break;
                 }
@@ -67,17 +62,24 @@ public class Main {
                     System.out.println("Enter type of the template: ");
                     String type = reader.nextLine();
                     for(int i = 0; i < templatesNames.size(); i++){
-                        if(templatesNames.get(i).equals(type)){
+                        if(templatesNames.get(i).equals(type))
                             templateOperation.updateTemplate(templatesNames.get(i));
-                        }
                         else
                             System.out.println("The template is not found");
                     }
                     break;
                 }
-//                case "4":{ //TODO
-//
-//                }
+                case "4":{
+                    System.out.println("Enter type of the template: ");
+                    String type = reader.nextLine();
+                    for(int i = 0; i < templatesNames.size(); i++){
+                        if(templatesNames.get(i).equals(type))
+                            templateOperation.deleteTemplate(templatesNames.get(i));
+                        else
+                            System.out.println("The template is not found");
+                    }
+                    break;
+                }
                 case "5":{
                     return;
                 }
@@ -87,7 +89,7 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         readFileNames();
         operationsExecutor();
     }
