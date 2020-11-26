@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FilenameFilter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -22,7 +23,7 @@ public class Main {
             templatesNames.add(templateNames[i].getName().replace(".txt", ""));
     }
 
-    public static void operationsExecutor(){
+    public static void operationsExecutor() throws IOException{
         while(true){
             Scanner reader = new Scanner(System.in);
             System.out.println("Choose an option: \n" +
@@ -36,7 +37,6 @@ public class Main {
                 case "1":{
                     System.out.println("Enter type of the template: ");
                     String type = reader.nextLine();
-
                     System.out.println("Enter content of the template: ");
                     reader.useDelimiter("\\t");
                     String content = "";
@@ -49,9 +49,20 @@ public class Main {
                     System.out.println("Template created successfully");
                     break;
                 }
-//                case "2":{ //TODO
-//
-//                }
+               case "2":{ 
+                   System.out.println("Enter type of the template: ");
+                    String type = reader.nextLine();
+                    for(int i = 0; i < templatesNames.size(); i++){
+                        if(templatesNames.get(i).equals(type))
+                        {
+                            templateOperation.readTemplate(templatesNames.get(i));
+                        }
+                        else
+                             System.out.println("The template is not found");
+                        
+                    }
+                    break;
+                }
                 case "3":{
                     System.out.println("Enter type of the template: ");
                     String type = reader.nextLine();
@@ -76,7 +87,7 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         readFileNames();
         operationsExecutor();
     }

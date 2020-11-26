@@ -1,4 +1,7 @@
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -22,9 +25,23 @@ public class NotificationsOperations {
         }
     }
 
-    public void readTemplate(){
-
-    } //TODO
+    public void readTemplate(String type) {
+         File fileName = new File(type +".txt");
+        
+        try {
+      Scanner myReader = new Scanner(fileName);
+      while (myReader.hasNextLine()) {
+        String data = myReader.nextLine();
+        System.out.println(data);
+      }
+      myReader.close();
+    } catch (FileNotFoundException e) {
+      System.out.println("An error occurred.");
+      e.printStackTrace();
+    }
+      
+        
+    }
 
     public void updateTemplate(String type){
         File fileName = new File(type + ".txt");
