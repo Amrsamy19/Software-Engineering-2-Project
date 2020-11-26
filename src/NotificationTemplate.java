@@ -1,17 +1,26 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class NotificationTemplate {
     private String type;
-    private String content;
+    private int id;
+    private Map<Integer, String> contents = new HashMap<>();
 
-    public void setTemplate(String type, String content){
+    public void setTemplate(String type, String content, int id){
         this.type = type;
-        this.content = content;
+        this.id = id;
+        this.contents.put(id, content);
     }
 
     public String getType(){
         return type;
     }
 
-    public String getContent(){
-        return content;
+    public int getID(){
+        return id;
+    }
+
+    public Map<Integer, String> getContent(){
+        return contents;
     }
 }

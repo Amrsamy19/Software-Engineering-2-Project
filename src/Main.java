@@ -1,10 +1,10 @@
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
+    public static HashMap<Integer, String> map = new HashMap<>();
     public static ArrayList<String> templatesNames = new ArrayList<>();
     public static NotificationTemplate template = new NotificationTemplate();
     public static NotificationsOperations templateOperation = new NotificationsOperations();
@@ -25,7 +25,7 @@ public class Main {
     }
 
     //Determines which operation that will be executed
-    public static void operationsExecutor() {
+    public static void operationsExecutor() throws IOException {
         while(true){
             Scanner reader = new Scanner(System.in);
             System.out.println("Choose an option: \n" +
@@ -39,11 +39,18 @@ public class Main {
                 case "1":{
                     System.out.println("Enter type of the template: ");
                     String type = reader.nextLine();
+
+                    System.out.println("Enter the id of the template: ");
+                    int id = Integer.parseInt(reader.nextLine());
+                    if(map.containsKey(id)) {
+                        System.out.println("ID is already used");
+                        break;
+                    }
                     System.out.println("Enter content of the template: ");
                     reader.useDelimiter("\\t");
                     String content = "";
                     content += reader.next();
-                    template.setTemplate(type, content);
+                    template.setTemplate(type, content, id);
                     templateOperation.createTemplate(template);
                     break;
                 }
@@ -61,6 +68,7 @@ public class Main {
                 case "3":{
                     System.out.println("Enter type of the template: ");
                     String type = reader.nextLine();
+
                     for(int i = 0; i < templatesNames.size(); i++){
                         if(templatesNames.get(i).equals(type))
                             templateOperation.updateTemplate(templatesNames.get(i));
@@ -89,8 +97,10 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         readFileNames();
+        for (int i = 0; i < templatesNames.size(); i++)
+            NotificationsOperations.readFromFile(templatesNames.get(i));
         operationsExecutor();
     }
 }
