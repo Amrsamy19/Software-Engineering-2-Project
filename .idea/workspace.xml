@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="24e9a0d3-6513-406b-8fdc-6e5020a8e602" name="Default Changelist" comment="Added class of notificationOperations&#10;Added create and update method">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SIGNUP.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Software.rar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Software/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Software/Main$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Software/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Software/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Software/NotificationTemplate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Software/NotificationTemplate.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Software/notificationsOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Software/notificationsOperations.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NotificationTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NotificationTemplate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NotificationsOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NotificationsOperations.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -111,7 +110,9 @@
       <workItem from="1606328369707" duration="15817000" />
       <workItem from="1606384166232" duration="38000" />
       <workItem from="1606409049708" duration="4308000" />
-      <workItem from="1606414794367" duration="14289000" />
+      <workItem from="1606414794367" duration="14840000" />
+      <workItem from="1606479074071" duration="3506000" />
+      <workItem from="1606482724779" duration="6330000" />
     </task>
     <servers />
   </component>
@@ -138,15 +139,17 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/NotificationsOperations.java</url>
-          <line>36</line>
-          <properties class="NotificationsOperations" method="readFromFile">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="16" />
+          <line>62</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="file.delete()" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

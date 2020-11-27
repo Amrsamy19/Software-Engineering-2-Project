@@ -1,34 +1,28 @@
 import java.io.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
 
 public class NotificationsOperations {
     //Creates new file for each type of the templates
     public void createTemplate(NotificationTemplate template) {
         File file = new File(template.getType() + ".txt");
-        BufferedWriter myReader = null;
+        FileWriter myWriter = null;
         try{
-            if(Main.map.containsKey(template.getID())) {
-                if (file.exists()) {
-                    myReader = new BufferedWriter(new FileWriter(file, false));
-                    for (Map.Entry<Integer, String> entry : Main.map.entrySet()) {
-                        myReader.write(entry.getKey() + ":" + entry.getValue());
-                    }
+            if (file.exists()) {
+                myWriter = new FileWriter(file, true);
+                for (Map.Entry<Integer, String> entry : template.getContent().entrySet()) {
+                    myWriter.append(entry.getKey() + ":" + entry.getValue());
                 }
             } else {
-                if (file.exists()) {
-                    myReader = new BufferedWriter(new FileWriter(file, true));
-                    for (Map.Entry<Integer, String> entry : template.getContent().entrySet()) {
-                        myReader.append(entry.getKey() + ":" + entry.getValue());
-                    }
-                } else {
-                    myReader = new BufferedWriter(new FileWriter(file, false));
-                    for (Map.Entry<Integer, String> entry : template.getContent().entrySet()) {
-                        myReader.write(entry.getKey() + ":" + entry.getValue());
-                        myReader.newLine();
-                    }
+                myWriter = new FileWriter(file, false);
+                for (Map.Entry<Integer, String> entry : template.getContent().entrySet()) {
+                    myWriter.write(entry.getKey() + ":" + entry.getValue());
+                    myWriter.write("\n");
                 }
             }
-            myReader.flush();
+            myWriter.flush();
         } catch (IOException e){
             e.printStackTrace();
         }
@@ -38,10 +32,10 @@ public class NotificationsOperations {
     public static void readFromFile(String type) throws IOException {
         File fileName = new File(type + ".txt");
         BufferedReader reader = new BufferedReader(new FileReader(fileName));
-        List<String> Parts = new ArrayList<String>();
+        List<String> Parts = new ArrayList<>();
         String line;
         String content = "";
-        String key = null;
+        int key = 0;
         while ((line = reader.readLine()) != null) {
             if (line.contains(":")){
                 String[] contentParts = line.split("\\:", 2);
@@ -49,13 +43,12 @@ public class NotificationsOperations {
                     Parts.add(text);
                 }
                 content = "";
-                key = Parts.get(0);
+                key = Integer.parseInt(Parts.get(0));
                 content += Parts.get(1) + "\n";
-                Main.map.put(Integer.parseInt(key), content);
+                Main.map.put(key, content);
             } else {
-                content += line;
-                Main.map.put(Integer.parseInt(key), content);
-                content = "";
+                content += line + "\n";
+                Main.map.put(key, content);
             }
             Parts.clear();
         }
@@ -75,8 +68,24 @@ public class NotificationsOperations {
             System.out.println("ID is not found");
     }
 
+    //Update specific template
+    public void updateSpecificData(String type, int id) throws IOException {
+        File file = new File(type + ".txt");
+        BufferedWriter myReader = null;
+        if (Main.map.containsKey(id)) {
+            if (file.exists()) {
+                myReader = new BufferedWriter(new FileWriter(file, false));
+                for (Map.Entry<Integer, String> entry : Main.map.entrySet()) {
+                    myReader.write(entry.getKey() + ":" + entry.getValue());
+                    myReader.newLine();
+                }
+            }
+        }
+        myReader.flush();
+    }
+
     //Updates the content of the template depends on the given type
-    public void updateTemplate(String type){
+    public void updateTemplate(String type) throws IOException {
         File fileName = new File(type + ".txt");
         Scanner myReader = new Scanner(System.in);
 
@@ -89,9 +98,10 @@ public class NotificationsOperations {
                 myReader.useDelimiter("\\t");
                 String content = "";
                 content += myReader.next();
+                Main.map.clear();
+                readFromFile(type);
                 Main.map.replace(id, content);
-                Main.template.setTemplate(type, content, id);
-                createTemplate(Main.template);
+                updateSpecificData(type, id);
                 System.out.println("Content has been updated successfully\n");
             }
             else
@@ -102,15 +112,19 @@ public class NotificationsOperations {
     }
 
     //Delete the template depends on the given type
-    public void deleteTemplate(String type){
+    public void deleteTemplate(String type) {
         File file = new File(type + ".txt");
-        if(file.isFile()){
-            if(file.exists()){
-                file.delete();
-                System.out.println("Template is deleted successfully\n");
+        try {
+            if (file.isFile()) {
+                if (file.exists()) {
+                    if(file.delete())
+                        System.out.println("Templates are deleted successfully\n");
+                    else
+                        System.out.println("Template not found");
+                }
             }
-            else
-                System.out.println("Template is not found\n");
+        } catch (Exception e){
+            System.out.println("Something bad happened");
         }
     }
 }

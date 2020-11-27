@@ -6,7 +6,6 @@ import java.util.*;
 public class Main {
     public static HashMap<Integer, String> map = new HashMap<>();
     public static ArrayList<String> templatesNames = new ArrayList<>();
-    public static NotificationTemplate template = new NotificationTemplate();
     public static NotificationsOperations templateOperation = new NotificationsOperations();
 
     //Reads the templates which had been made
@@ -37,15 +36,13 @@ public class Main {
             String choice = reader.nextLine();
             switch(choice){
                 case "1":{
+                    NotificationTemplate template = new NotificationTemplate();
                     System.out.println("Enter type of the template: ");
                     String type = reader.nextLine();
 
                     System.out.println("Enter the id of the template: ");
                     int id = Integer.parseInt(reader.nextLine());
-                    if(map.containsKey(id)) {
-                        System.out.println("ID is already used");
-                        break;
-                    }
+
                     System.out.println("Enter content of the template: ");
                     reader.useDelimiter("\\t");
                     String content = "";
@@ -57,35 +54,29 @@ public class Main {
                 case "2":{
                    System.out.println("Enter type of the template: ");
                    String type = reader.nextLine();
-                   for(int i = 0; i < templatesNames.size(); i++){
-                       if(templatesNames.get(i).equals(type))
-                           templateOperation.readTemplate(templatesNames.get(i));
-                        else
-                            System.out.println("The template is not found");
-                    }
+                   if(templatesNames.contains(type))
+                       templateOperation.readTemplate(templatesNames.get(templatesNames.indexOf(type)));
+                   else
+                       continue;
                     break;
                 }
                 case "3":{
                     System.out.println("Enter type of the template: ");
                     String type = reader.nextLine();
 
-                    for(int i = 0; i < templatesNames.size(); i++){
-                        if(templatesNames.get(i).equals(type))
-                            templateOperation.updateTemplate(templatesNames.get(i));
-                        else
-                            System.out.println("The template is not found");
-                    }
+                    if(templatesNames.contains(type))
+                        templateOperation.updateTemplate(templatesNames.get(templatesNames.indexOf(type)));
+                    else
+                        continue;
                     break;
                 }
                 case "4":{
                     System.out.println("Enter type of the template: ");
                     String type = reader.nextLine();
-                    for(int i = 0; i < templatesNames.size(); i++){
-                        if(templatesNames.get(i).equals(type))
-                            templateOperation.deleteTemplate(templatesNames.get(i));
-                        else
-                            System.out.println("The template is not found");
-                    }
+                    if(templatesNames.contains(type))
+                        templateOperation.deleteTemplate(templatesNames.get(templatesNames.indexOf(type)));
+                    else
+                        continue;
                     break;
                 }
                 case "5":{
