@@ -3,13 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="24e9a0d3-6513-406b-8fdc-6e5020a8e602" name="Default Changelist" comment="Added class of notificationOperations&#10;Added create and update method">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SIGNUP.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Software.rar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Software/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Software/Main$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Software/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Software/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Software/notificationsOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Software/notificationsOperations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NotificationsOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NotificationsOperations.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -112,7 +105,7 @@
       <workItem from="1606409049708" duration="4308000" />
       <workItem from="1606414794367" duration="14840000" />
       <workItem from="1606479074071" duration="3506000" />
-      <workItem from="1606482724779" duration="6577000" />
+      <workItem from="1606482724779" duration="8287000" />
     </task>
     <servers />
   </component>
